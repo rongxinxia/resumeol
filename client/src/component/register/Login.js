@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom'
+
+import {loginUser} from '../../actions/authActions'
 
 class Login extends Component {
 
     state = {
       email: '',
       password: '',
-      errors: {}
+      error: {}
     };
-
 
     onSubmit = (value) => {
     value.preventDefault();
@@ -17,11 +20,27 @@ class Login extends Component {
       password: this.state.password
     };
 
-    console.log(user);
+    this.props.loginUser(user);
     }
 
     onChange = (value) => {
     this.setState({ [value.target.name]: value.target.value });
+    }
+
+    componentDidMount(){
+        if(this.props.auth.isAuth){
+            this.props.history.push('/dashboard')
+        }
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.auth.isAuth){
+            this.props.history.push('/dashboard')
+        }
+
+        if(nextProps.error){
+            this.setState({error: nextProps.error})
+        }
     }
 
   render() {
@@ -65,4 +84,14 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const actions ={loginUser}
+
+const mapState = (state) =>{
+    console.log(state)
+    return ({
+        auth: state.auth,
+        error: state.error
+    });
+};
+
+export default connect(mapState, actions)(withRouter(Login));
