@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom';
+import {Link,withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {logoutUser} from '../../actions/authActions';
 import {clearCurrentProfile} from '../../actions/profileAction'
@@ -9,6 +9,8 @@ class Navbar extends Component {
     e.preventDefault();
     this.props.clearCurrentProfile();
     this.props.logoutUser();
+    //this.props.history.push('/')
+    //console.log(this.props.auth.isAuth)
   }
 
   render() {
@@ -16,14 +18,19 @@ class Navbar extends Component {
 
     const authLinks = (
       <ul className="navbar-nav ml-auto">
+      <li className="nav-item">
+          <Link className="nav-link" to="/feed">
+            Post Feed
+          </Link>
+        </li>
         <li className="nav-item">
           <Link className="nav-link" to="/dashboard">
             Dashboard
           </Link>
         </li>
         <li className="nav-item">
-          <a
-            href=""
+          <Link
+            to="/"
             onClick={this.onLogoutClick.bind(this)}
             className="nav-link"
           >
@@ -35,7 +42,7 @@ class Navbar extends Component {
               title="You must have a Gravatar connected to your email to display an image"
             />{' '}
             Logout
-          </a>
+          </Link>
         </li>
       </ul>
     );
@@ -97,4 +104,4 @@ const actions={
   logoutUser
 }
 
-export default connect(mapState,actions)(Navbar);
+export default connect(mapState,actions)(withRouter(Navbar));

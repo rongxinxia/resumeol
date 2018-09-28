@@ -11,7 +11,7 @@ export const register = (userData, history)=>dispatch=>{
     .catch(err=>(
         dispatch({
             type: GET_ERRORS,
-            payload:err.reponse.data
+            payload:err.response.data
         })
     ))
 }
@@ -47,5 +47,5 @@ export const setCurrentUser=(decoded)=>{
 export const logoutUser=()=>dispatch=>{
     localStorage.removeItem('jwtToken');
     setAuthToken(false);
-    setCurrentUser({})
+    dispatch(setCurrentUser({}))
 }

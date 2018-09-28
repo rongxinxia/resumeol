@@ -20,6 +20,9 @@ import AddEducation from '../src/component/editProfile/addEducation'
 import AddExperience from '../src/component/editProfile/addExperience'
 import Profile from '../src/component/profile/Profile'
 import Profiles from '../src/component/profiles/Profiles'
+import Posts from '../src/component/posts/Posts';
+import Post from '../src/component/post/Post';
+
 // check for local storage token
 
 if(localStorage.jwtToken){
@@ -81,6 +84,12 @@ class App extends Component {
                   path="/add-education"
                   component={AddEducation}
                 />
+        </Switch>
+        <Switch>
+                <PrivateRoute exact path="/feed" component={Posts} />
+        </Switch>
+        <Switch>
+                <PrivateRoute exact path="/post/:id" component={Post} />
         </Switch>
 
       <Footer/>
