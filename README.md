@@ -12,15 +12,15 @@
            |                  ╚════════╝   ╚════════╝                             
            |                             |           
 ╔══════════════════════╗ ╔══════════════════════════╗ ╔═══════════════════════╗  
-║    Resume Component  ║ ║ Authentication Component ║ ║     Post Component    ║  
+║    Resume Component  ║ ║ Authentication Component ║ ║     Info Component    ║  
 ╚══════════════════════╝ ╚══════════════════════════╝ ╚═══════════════════════╝
            |                          |                           |
 ╔══════════════════════╗ ╔══════════════════════════╗ ╔═══════════════════════╗  
-║    Resume Actions    ║ ║  Authentication Actions  ║ ║      Post Actions     ║  
+║    Resume Actions    ║ ║  Authentication Actions  ║ ║      Info Actions     ║  
 ╚══════════════════════╝ ╚══════════════════════════╝ ╚═══════════════════════╝
            |\                         /\                         /|        
 ╔════════════════════════════════╗                          ╔═══════════╗ 
-║   States Maintaned by Redux    ║                          ║   axios   ║
+║   States Maintained by Redux   ║                          ║   axios   ║
 ╚════════════════════════════════╝                          ╚═══════════╝     
                                                                   |
                                                                   |
@@ -48,7 +48,7 @@ Frontend is based on React, mainly divided for three components:
 
 |2| Authentication
 
-|3| Information
+|3| Information/Post
 
 All three are in client/src/component
 
