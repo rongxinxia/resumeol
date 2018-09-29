@@ -48,7 +48,7 @@ Frontend is based on React, mainly divided for three components:
 
 |2| Authentication
 
-|3| Information/Post
+|3| Info
 
 All three are in client/src/component.
 
