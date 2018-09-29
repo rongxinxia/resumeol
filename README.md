@@ -52,16 +52,16 @@ Frontend is based on React, mainly divided for three components:
 
 All three are in client/src/component
 
-The components routing is achieved by React-Router and the global states are maintained by React-Redux.
+The components routing is achieved by React-Router and global states are maintained by React-Redux.
 
-The asynchronous actions is mainly achived by client/src/actions and client/src/reducers
+The asynchronous actions are mainly achived by client/src/actions and client/src/reducers
 
 How a request is sent from frontend to backend:
  
 - Components call actions (Resume/Authentication/Information).
 - Actions send HTTP requests to the server.
 - The server sends back the response.
-- Actions process the responses and update states.
+- Actions process responses and update states.
 - Components update with updated states.
 
 
@@ -69,12 +69,14 @@ How a request is sent from frontend to backend:
 
 Backend is implemted by Node.js/Express with Mongoose connecting MongoDB hosted on mLab as the DB.
 
-How a request is handled by the backend
-
 All three routers are in routers/API
 
 Schema are defined in models
 
-- Request handled by express.Router() (Resume/Authentication/Information).
-- Fetch data with Mongoose from DB.
-- Send reponsed back to the frontend.
+
+
+How a request is handled by the backend
+
+- Requests handled by express.Router() (Resume/Authentication/Information).
+- Fetching data with Mongoose from the DB.
+- Sending the reponse back to the frontend.
