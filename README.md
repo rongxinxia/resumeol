@@ -40,8 +40,6 @@
 
 
 
-
-
 # Frontend
 
 Frontend is based on React, mainly divided for three components:
